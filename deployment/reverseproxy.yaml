@@ -6,21 +6,22 @@ spec:
   selector:
     matchLabels:
       run: reverseproxy
+  replicas: 2
   template:
     metadata:
       labels:
         run: reverseproxy
     spec:
       containers:
-        - name: reverseproxy
-          image: docker.io/ukeh11/udagram-reverseproxy:v1
-          ports:
-            - containerPort: 80
-          resources:
-            limits:
-              cpu: 500m
-            requests:
-              cpu: 200m
+      - name: reverseproxy
+        image: docker.io/ukeh11/udagram-api-feed:v3
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
 
 ---
 apiVersion: v1

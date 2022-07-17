@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v4
 kind: Deployment
 metadata:
   name: frontend
@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: docker.io/ukeh11/udagram-frontend:v3
+          image: docker.io/ukeh11/udagram-frontend:v4
           ports:
             - containerPort: 80
           resources:
@@ -23,7 +23,7 @@ spec:
               cpu: 200m
 
 ---
-apiVersion: v1
+apiVersion: v4
 kind: Service
 metadata:
   name: frontend

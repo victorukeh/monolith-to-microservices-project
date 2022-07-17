@@ -13,7 +13,24 @@ spec:
     spec:
       containers:
       - name: backend-feed
-        image: docker.io/ukeh11/udagram-api-feed:v3
+        image: docker.io/ukeh11/udagram-api-feed:v4
+        env:
+        - name: POSTGRES_HOST
+          value: "micro.c4kotlgv5jcg.us-east-1.rds.amazonaws.com"
+        - name: POSTGRES_DB
+          value: "postgres"
+        - name: POSTGRES_USERNAME
+          value: "postgres"
+        - name: POSTGRES_PASSWORD
+          value: "postgres"
+          - name: AWS_BUCKET
+          value: "project-3-dev"
+        - name: AWS_REGION
+          value: "us-east-1"
+        - name: AWS_PROFILE
+          value: "default"
+        - name: JWT_SECRET
+          value: "tsadasdasdsfdsfss"
         ports:
         - containerPort: 80
         resources:
@@ -21,7 +38,6 @@ spec:
             cpu: 500m
           requests:
             cpu: 200m
-
 ---
 apiVersion: v1
 kind: Service

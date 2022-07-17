@@ -12,15 +12,24 @@ spec:
         run: backend-user
     spec:
       containers:
-      - name: backend-user
-        image: docker.io/ukeh11/udagram-api-user:v3
-        ports:
-        - containerPort: 80
-        resources:
-          limits:
-            cpu: 500m
-          requests:
-            cpu: 200m
+        - name: backend-user
+          image: docker.io/ukeh11/udagram-api-user:v4
+          env:
+            - name: POSTGRES_HOST
+              value: "micro.c4kotlgv5jcg.us-east-1.rds.amazonaws.com"
+            - name: POSTGRES_DB
+              value: "postgres"
+            - name: POSTGRES_USERNAME
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 200m
 
 ---
 apiVersion: v1

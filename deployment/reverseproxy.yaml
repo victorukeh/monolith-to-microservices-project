@@ -13,15 +13,15 @@ spec:
         run: reverseproxy
     spec:
       containers:
-      - name: reverseproxy
-        image: docker.io/ukeh11/udagram-api-feed:v3
-        ports:
-        - containerPort: 80
-        resources:
-          limits:
-            cpu: 500m
-          requests:
-            cpu: 200m
+        - name: reverseproxy
+          image: docker.io/ukeh11/reverseproxy:v4
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 200m
 
 ---
 apiVersion: v1
